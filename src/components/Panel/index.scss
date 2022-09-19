@@ -1,0 +1,119 @@
+.weatherapp-panel{
+    font-family: 'Helvetica';    
+    color: #ffffff;
+    margin-left: 18px;
+
+    .panel-header{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        font-size: 48px;
+    }
+
+    .main-content{
+        display: flex;
+        flex-direction: row;
+        column-gap: 12.75rem;
+    }
+
+    .section-header{
+        font-weight: 700;
+        font-size: 32px;
+        margin-top: 4.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .three{
+        display: flex;
+        flex-direction: column;
+    }   
+
+    .five{
+        display: flex;
+        flex-direction: row;
+        column-gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .fiveteen{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1850px){
+    .weatherapp-panel{
+        margin-left: 10px;
+
+        .panel-header{
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        .main-content{
+            display: flex;
+            flex-direction: row;
+            column-gap: 10.25rem;
+        }
+
+        .section-header{
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .three{
+            display: flex;
+            flex-direction: row;
+            column-gap: 1rem;
+        }   
+    
+        .five{
+            display: flex;
+            flex-direction: column;
+            row-gap: 2rem;
+            margin-bottom: 2rem;
+        }
+    }    
+}
+
+@media screen and (max-width: 1080px){
+    .weatherapp-panel{
+        margin-left: 0;
+        .panel-header{
+            font-size: 36px;
+            margin-left: 18rem;
+        }
+
+        .main-content{
+            display: flex;
+            flex-direction: column;
+            row-gap: 4rem;
+            margin-left: 20rem;
+        }
+
+        .section-header{
+            margin-top: 3rem;
+            font-size: 36px;
+            margin-left: 0rem;
+            margin-bottom: 3rem;
+            margin-right: 1rem;
+            text-align: center;
+        }
+
+        .three{
+            display: none;
+        }   
+    
+        .five{
+            display: none;
+        }
+
+        .fiveteen{
+            display: flex;
+            flex-direction: column;          
+        }
+    }
+}

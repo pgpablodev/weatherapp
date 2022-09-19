@@ -1,0 +1,74 @@
+.title-bar{
+    background-color: #21233a;
+    font-family: Coolvetica;
+    color: #ffffff;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;    
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+
+    .title{
+        margin-top: 25px;
+        margin-left: 25px;
+        font-size: 36px;
+    }
+
+    .credit{
+        margin-top: 0.65rem;
+        margin-left: 2rem;
+        font-size: 20px;
+        img{
+            transform: scale(20%, 20%);
+            transform-origin: left top;
+        }
+    }
+
+    .icon{
+        width: 5rem; 
+        margin-left: 47%;
+        margin-right: 1rem;
+        margin-top: 13px;
+        background-image: url("../../assets/images/weathericon.png");
+        background-size: 75px;
+        background-repeat: no-repeat;            
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1850px){
+    .title-bar{
+        height: 75px;
+
+        .title{
+            font-size: 24px;
+        }
+
+        .credit{
+            font-size: 16px;
+            img{
+                transform: scale(15%, 15%);
+            }
+        }
+
+        .icon{
+            margin-left: 32%;
+            margin-top: 10px;
+            background-size: 58px;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1850px){
+    .title-bar{
+        max-width: 1080px;        
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .title-bar{
+        max-width: 1080px; 
+    }
+}

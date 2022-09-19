@@ -1,0 +1,56 @@
+.wind-widget{
+    display: flex;
+    flex-direction: column;   
+    row-gap: 2rem;
+    align-items: center;
+    background-color: #21233a;
+    border: 16px solid #21233a;
+    width: fit-content;
+
+    .wind-icon{
+        font-size: 6rem;
+        margin-top: 1rem;
+    }
+
+    .wind-speed{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1850px){
+    .wind-widget{
+        border: 8px solid #21233a;
+        row-gap: 0.5rem;
+        height: 95px;
+
+        .wind-icon{
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+
+        .wind-speed{
+            font-size: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .wind-widget{
+        border: 8px solid #21233a;
+        display: flex;
+        flex-direction: row;  
+        column-gap: 13.5rem;
+        height: 80px;
+        width: 24rem;
+
+        .wind-icon{
+            margin-top: 0rem;
+            margin-left: 2rem;
+        }
+
+        .wind-speed{
+            font-size: 22px;
+            margin-left: 0.5rem;
+        }
+    }
+}

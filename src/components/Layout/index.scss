@@ -1,0 +1,46 @@
+.page{
+    position: absolute;
+    top: 100px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 12rem;
+
+    .page-map{
+        margin-top: 20px;
+        height: 820px;
+        width: 680px;
+        color: white;
+        font-family: 'Helvetica';
+        font-weight: 700;
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1850px){
+    .page{
+        top: 85px;
+        column-gap: 7rem;
+    }
+
+    .page-map{
+        margin-top: 15px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1850px){
+    .page{
+        column-gap: 17rem;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .page{
+        left: 0;
+        max-width: 1080px;
+    }
+
+    .page-map{
+        display: none;
+    }
+}

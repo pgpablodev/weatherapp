@@ -1,0 +1,78 @@
+.today-widget{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;
+    background-color: #21233a;
+    border: 16px solid #21233a;
+    width: fit-content;
+
+    .main-section{
+        display: flex;
+        flex-direction: column;
+
+        .current-date{
+            margin-left: 2rem;
+            font-family: 'Helvetica';
+            font-weight: 500;
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
+    
+    .big{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: 'Coolvetica';
+        font-size: 4.5rem;
+
+        .current-weather{
+            margin-left: 2rem;
+        }
+    }
+
+    .side-section{
+        display: flex;
+        flex-direction: column;
+        row-gap: 5rem;
+        margin-left: 1rem;
+        margin-bottom: 6rem;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1850px){
+    .today-widget{
+        border: 8px solid #21233a;
+        height: 6rem;
+        .main-section{
+            .current-date{
+                font-size: 12px;
+                margin-left: 0rem;
+                font-weight: 700;
+            }
+        }
+
+        .big{
+            .current-weather{
+                margin-left: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            .today-icon{
+                transform: scale(30%,30%);
+                transform-origin: left top;
+                width: 40px;
+                height: 40px;
+                margin-bottom: 1rem;
+            }
+            font-size: 2rem;
+        }
+
+        .side-section{
+            row-gap: 1rem;
+            margin-left: 1rem;
+            margin-top: 3rem;
+            font-size: 12px;
+        }
+    }
+}
+
