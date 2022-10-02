@@ -23,7 +23,7 @@ import d50 from '../../../assets/images/50d.png'
 import n50 from '../../../assets/images/50n.png'
 
 const API_endpoint = `https://api.openweathermap.org/data/2.5/forecast?`
-const API_key = `b21be3550fa41ada5e67c9766c88958b`
+const API_key = process.env.REACT_APP_API_key
 
 const FutureWeatherMobile = ({id}) => {
     const [latitude, setLatitude] = useState('')
@@ -165,7 +165,7 @@ const FutureWeatherMobile = ({id}) => {
     switch(nombreDia){
         case "DOM":
             return(
-                <div className="future-mobile-widget">
+                <div className="future-mobile-widget" style={{backgroundColor: "#21233a", borderColor: "#21233a"}}>
                     <div className="future-mobile-main-section">
                         <div className="future-mobile-big">
                             <div className="future-mobile-icon">

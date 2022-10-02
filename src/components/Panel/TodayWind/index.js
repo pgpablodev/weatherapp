@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import './index.scss'
 
 const API_endpoint = `https://api.openweathermap.org/data/2.5/weather?`
-const API_key = `b21be3550fa41ada5e67c9766c88958b`
+const API_key = process.env.REACT_APP_API_key
 
 const TodayWind = () => {
     const [latitude, setLatitude] = useState('')
