@@ -22,12 +22,14 @@ const TodayWind = () => {
             
             let finalAPIEndPoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=${API_key}`
 
-            axios.get(finalAPIEndPoint)
-            .then((response) => {
-                const vel = Math.round(response.data.wind.speed*3.6)
-                setSpeed(vel)
-                setDeg(response.data.wind.deg)
-            })
+            if(latitude!=='' && longitude!==''){
+                axios.get(finalAPIEndPoint)
+                .then((response) => {
+                    const vel = Math.round(response.data.wind.speed*3.6)
+                    setSpeed(vel)
+                    setDeg(response.data.wind.deg)
+                })
+            }            
         })
     }, [latitude, longitude])
 

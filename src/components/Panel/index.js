@@ -23,10 +23,14 @@ const Panel = () => {
             
             let finalAPIEndPoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
 
-            axios.get(finalAPIEndPoint)
-            .then((response) => {
-                setCityName("Tiempo actual en " +response.data[0].name)
-            })
+            if(latitude!=='' && longitude!==''){
+                axios.get(finalAPIEndPoint)
+                .then((response) => {
+                    setCityName("Tiempo actual en " +response.data[0].name)
+                }).catch((error) => {
+                    console.log(error.message)
+                })
+            }            
         })
         
 
