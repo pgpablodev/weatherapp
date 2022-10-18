@@ -6,7 +6,7 @@ import FutureWeatherMobile from './FutureWeatherMobile'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const API_endpoint = `http://api.openweathermap.org/geo/1.0/reverse?`
+const API_endpoint = `https://api.openweathermap.org/geo/1.0/reverse?`
 const API_key = `b21be3550fa41ada5e67c9766c88958b`
 
 const Panel = () => {    
