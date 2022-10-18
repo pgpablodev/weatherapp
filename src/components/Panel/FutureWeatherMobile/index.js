@@ -23,7 +23,7 @@ import d50 from '../../../assets/images/50d.png'
 import n50 from '../../../assets/images/50n.png'
 
 const API_endpoint = `https://api.openweathermap.org/data/2.5/forecast?`
-const API_key = process.env.REACT_APP_API_key
+const API_key = `b21be3550fa41ada5e67c9766c88958b`
 
 const FutureWeatherMobile = ({id}) => {
     const [latitude, setLatitude] = useState('')
