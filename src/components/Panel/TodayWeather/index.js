@@ -51,7 +51,7 @@ const TodayWeather = () => {
 
             if(latitude!=='' && longitude!==''){
                 axios.get(finalAPIEndPoint)
-                .then((response) => {                
+                .then((response) => {             
                     const celsius = Math.round(response.data.main.temp-273.15)
                     const celsiusMax = Math.round(response.data.main.temp_max-273.15)
                     const celsiusMin = Math.round(response.data.main.temp_min-273.15)
