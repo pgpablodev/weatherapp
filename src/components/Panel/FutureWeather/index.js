@@ -25,9 +25,7 @@ import n50 from '../../../assets/images/small/50n.png'
 const API_endpoint = `https://api.openweathermap.org/data/2.5/forecast?`
 const API_key = `b21be3550fa41ada5e67c9766c88958b`
 
-const FutureWeather = ({id}) => {
-    const [latitude, setLatitude] = useState('')
-    const [longitude, setLongitude] = useState('')
+const FutureWeather = ({id, latitud, longitud}) => {
     const [temp, setTemp] = useState('')
     const [minTemp, setMinTemp] = useState('')
     const [maxTemp, setMaxTemp] = useState('')
@@ -43,126 +41,121 @@ const FutureWeather = ({id}) => {
         setMaxTemp("...")
         setFecha("...")
         setHora("...")
-        
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLatitude(position.coords.latitude)
-            setLongitude(position.coords.longitude)
             
-            let finalAPIEndPoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
+        let finalAPIEndPoint = `${API_endpoint}lat=${latitud}&lon=${longitud}&appid=${API_key}`
 
-            if(latitude!=='' && longitude!==''){
-                axios.get(finalAPIEndPoint).then((response) => {
-                    setTemp(Math.round(response.data.list[id].main.temp-273.15))
-                    setMinTemp(Math.round(response.data.list[id].main.temp_min-273.15))
-                    setMaxTemp(Math.round(response.data.list[id].main.temp_max-273.15))
-                    const dia = new Date(response.data.list[id].dt*1000).getDate()
-                    const mes = new Date(response.data.list[id].dt*1000).getMonth()
-                    const anio = new Date(response.data.list[id].dt*1000).getFullYear()
-                    const diaSemana = new Date(response.data.list[id].dt*1000).getDay()
-                    const hh = new Date(response.data.list[id].dt*1000).getHours()
+        if(latitud!=='' && longitud!==''){
+            axios.get(finalAPIEndPoint).then((response) => {
+                setTemp(Math.round(response.data.list[id].main.temp-273.15))
+                setMinTemp(Math.round(response.data.list[id].main.temp_min-273.15))
+                setMaxTemp(Math.round(response.data.list[id].main.temp_max-273.15))
+                const dia = new Date(response.data.list[id].dt*1000).getDate()
+                const mes = new Date(response.data.list[id].dt*1000).getMonth()
+                const anio = new Date(response.data.list[id].dt*1000).getFullYear()
+                const diaSemana = new Date(response.data.list[id].dt*1000).getDay()
+                const hh = new Date(response.data.list[id].dt*1000).getHours()
+                
+                switch(diaSemana){
+                    case 0:
+                        setNombreDia("DOM")
+                        break  
+                    case 1:
+                        setNombreDia("LUN")
+                        break
+                    case 2:
+                        setNombreDia("MAR")
+                        break
+                    case 3:
+                        setNombreDia("MIÉ")
+                        break
+                    case 4:
+                        setNombreDia("JUE")
+                        break
+                    case 5:
+                        setNombreDia("VIE")
+                        break
+                    case 6:
+                        setNombreDia("SÁB")
+                        break                     
+                    default:
+                        setNombreDia("")
+                        break
+                }
+
+                if(mes<9)
+                    setFecha(`${nombreDia} ${dia}/0${mes+1}/${anio}`)                    
+                else
+                    setFecha(`${nombreDia} ${dia}/${mes+1}/${anio}`)
+                
+                if(hh<10)
+                    setHora(`0${hh}:00`)
+                else
+                    setHora(`${hh}:00`)                
+                
+                setWeather(response.data.list[id].weather[0].description)
                     
-                    switch(diaSemana){
-                        case 0:
-                            setNombreDia("DOM")
-                            break  
-                        case 1:
-                            setNombreDia("LUN")
-                            break
-                        case 2:
-                            setNombreDia("MAR")
-                            break
-                        case 3:
-                            setNombreDia("MIÉ")
-                            break
-                        case 4:
-                            setNombreDia("JUE")
-                            break
-                        case 5:
-                            setNombreDia("VIE")
-                            break
-                        case 6:
-                            setNombreDia("SÁB")
-                            break                     
-                        default:
-                            setNombreDia("")
-                            break
-                    }
-    
-                    if(mes<9)
-                        setFecha(`${nombreDia} ${dia}/0${mes+1}/${anio}`)                    
-                    else
-                        setFecha(`${nombreDia} ${dia}/${mes+1}/${anio}`)
-                    
-                    if(hh<10)
-                        setHora(`0${hh}:00`)
-                    else
-                        setHora(`${hh}:00`)                
-                    
-                    setWeather(response.data.list[id].weather[0].description)
-                        
-                    switch(response.data.list[id].weather[0].icon){
-                        case "01d":
-                            setIcono(d01)
-                            break
-                        case "01n":
-                            setIcono(n01)
-                            break
-                        case "02d":
-                            setIcono(d02)
-                            break
-                        case "02n":
-                            setIcono(n02)
-                            break
-                        case "03d":
-                            setIcono(d03)
-                            break
-                        case "03n":
-                            setIcono(n03)
-                            break
-                        case "04d":
-                            setIcono(d04)
-                            break
-                        case "04n":
-                            setIcono(n04)
-                            break
-                        case "09d":
-                            setIcono(d09)
-                            break
-                        case "09n":
-                            setIcono(n09)
-                            break
-                        case "10d":
-                            setIcono(d10)
-                            break
-                        case "10n":
-                            setIcono(n10)
-                            break
-                        case "11d":
-                            setIcono(d11)
-                            break
-                        case "11n":
-                            setIcono(n11)
-                            break
-                        case "13d":
-                            setIcono(d13)
-                            break
-                        case "13n":
-                            setIcono(n13)
-                            break
-                        case "50d":
-                            setIcono(d50)
-                            break
-                        case "50n":
-                            setIcono(n50)
-                            break
-                        default:
-                            setIcono("")
-                            break
-                    }
-                })
-            }           
-        })
-    }, [latitude, longitude, id, nombreDia])
+                switch(response.data.list[id].weather[0].icon){
+                    case "01d":
+                        setIcono(d01)
+                        break
+                    case "01n":
+                        setIcono(n01)
+                        break
+                    case "02d":
+                        setIcono(d02)
+                        break
+                    case "02n":
+                        setIcono(n02)
+                        break
+                    case "03d":
+                        setIcono(d03)
+                        break
+                    case "03n":
+                        setIcono(n03)
+                        break
+                    case "04d":
+                        setIcono(d04)
+                        break
+                    case "04n":
+                        setIcono(n04)
+                        break
+                    case "09d":
+                        setIcono(d09)
+                        break
+                    case "09n":
+                        setIcono(n09)
+                        break
+                    case "10d":
+                        setIcono(d10)
+                        break
+                    case "10n":
+                        setIcono(n10)
+                        break
+                    case "11d":
+                        setIcono(d11)
+                        break
+                    case "11n":
+                        setIcono(n11)
+                        break
+                    case "13d":
+                        setIcono(d13)
+                        break
+                    case "13n":
+                        setIcono(n13)
+                        break
+                    case "50d":
+                        setIcono(d50)
+                        break
+                    case "50n":
+                        setIcono(n50)
+                        break
+                    default:
+                        setIcono("")
+                        break
+                }
+            })
+        }           
+    }, [latitud, longitud, id, nombreDia])
 
     switch(nombreDia){
         case "DOM":

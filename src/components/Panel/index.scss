@@ -1,7 +1,9 @@
 .weatherapp-panel{
+    z-index: 0;
     font-family: 'Helvetica';    
     color: #ffffff;
-    margin-left: 18px;
+    position: absolute;
+    left: 18px;
 
     .panel-header{
         margin-top: 2rem;
@@ -34,10 +36,24 @@
         column-gap: 2rem;
         margin-bottom: 2rem;
     }
+}
 
-    .fiveteen{
-        display: none;
-    }
+.loading-panel{
+    z-index: 3;
+    font-family: 'Coolvetica';    
+    color: #ffffff;
+    background-color: #21233a;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    left: 18px;
+    width: 1865px;
+    height: 810px;
+    font-size: 72px;
+    background-image: url('../../assets/images/weathericon.png');
+    background-repeat: no-repeat;
+    background-size: 18%;
+    background-position: center center;
 }
 
 @media screen and (min-width: 1080px) and (max-width: 1850px){
@@ -76,12 +92,19 @@
             row-gap: 2rem;
             margin-bottom: 2rem;
         }
-    }    
+    }
+    
+    .loading-panel{
+        top: 10px;
+        width: 120vw;
+        height: 750px;
+        font-size: 72px;
+    }
 }
 
 @media screen and (max-width: 1080px){
     .weatherapp-panel{
-        margin-left: 0;
+        left: 0px;
         .panel-header{
             font-size: 36px;
             margin-left: 18rem;
@@ -103,17 +126,16 @@
             text-align: center;
         }
 
-        .three{
-            display: none;
-        }   
-    
-        .five{
-            display: none;
-        }
-
         .fiveteen{
             display: flex;
             flex-direction: column;          
         }
     }
+
+    .loading-panel{
+        top: 0px;
+        left: 0px;
+        width: 1080px;
+        height: 1920px;
+    }    
 }
