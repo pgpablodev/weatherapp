@@ -53,7 +53,6 @@ const FutureWeather = ({id, latitud, longitud}) => {
                 const mes = new Date(response.data.list[id].dt*1000).getMonth()
                 const anio = new Date(response.data.list[id].dt*1000).getFullYear()
                 const diaSemana = new Date(response.data.list[id].dt*1000).getDay()
-                console.log(diaSemana)
                 const hh = new Date(response.data.list[id].dt*1000).getHours()
                 
                 switch(diaSemana){

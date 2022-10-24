@@ -45,7 +45,7 @@ const TodayWeather = ({latitud, longitud}) => {
 
         if(latitud!=='' && longitud!==''){
             axios.get(finalAPIEndPoint)
-            .then((response) => {             
+            .then((response) => {          
                 const celsius = Math.round(response.data.main.temp-273.15)
                 const celsiusMax = Math.round(response.data.main.temp_max-273.15)
                 const celsiusMin = Math.round(response.data.main.temp_min-273.15)
@@ -55,8 +55,8 @@ const TodayWeather = ({latitud, longitud}) => {
                 const dia = new Date(response.data.dt*1000).getDate()
                 const mes = new Date(response.data.dt*1000).getMonth()
                 const anio = new Date(response.data.dt*1000).getFullYear()
-                const hh = new Date().getHours()
-                const mm = new Date().getMinutes()
+                const hh = new Date(response.data.dt*1000).getHours()
+                const mm = new Date(response.data.dt*1000).getMinutes()
                 const diaSemana = new Date(response.data.dt*1000).getDay()
                 let nombreDia = ""
                 
