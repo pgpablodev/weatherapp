@@ -53,6 +53,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                 const mes = new Date(response.data.list[id].dt*1000).getMonth()
                 const anio = new Date(response.data.list[id].dt*1000).getFullYear()
                 const diaSemana = new Date(response.data.list[id].dt*1000).getDay()
+                console.log(diaSemana)
                 const hh = new Date(response.data.list[id].dt*1000).getHours()
                 
                 switch(diaSemana){
@@ -83,9 +84,9 @@ const FutureWeather = ({id, latitud, longitud}) => {
                 }
 
                 if(mes<9)
-                    setFecha(`${nombreDia} ${dia}/0${mes+1}/${anio}`)                    
+                    setFecha(`${dia}/0${mes+1}/${anio}`)                    
                 else
-                    setFecha(`${nombreDia} ${dia}/${mes+1}/${anio}`)
+                    setFecha(`${dia}/${mes+1}/${anio}`)
                 
                 if(hh<10)
                     setHora(`0${hh}:00`)
@@ -171,7 +172,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -199,7 +200,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -227,7 +228,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -255,7 +256,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -283,7 +284,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -311,7 +312,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -339,7 +340,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">
@@ -367,7 +368,7 @@ const FutureWeather = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-date">
-                            {fecha}<br></br>{hora}
+                            {nombreDia} {fecha}<br></br>{hora}
                         </div>
                     </div>
                     <div className="future-side-section">

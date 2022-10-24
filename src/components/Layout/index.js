@@ -1,19 +1,8 @@
 import './index.scss';
 import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer, TileLayer , Marker, useMapEvents } from 'react-leaflet'
 import Titlebar from '../Titlebar'
 import Panel from '../Panel'
-
-function InitMap({latitud, longitud}){
-    return(
-        <MapContainer center={[latitud, longitud]} zoom={13} scrollWheelZoom={true}>
-            <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-            />
-        </MapContainer>        
-    )    
-}
 
 const Layout = () => {   
     const [latitude, setLatitude] = useState('')
@@ -27,6 +16,29 @@ const Layout = () => {
             setLoading(false)
         })
     }, []) 
+
+    function ChangeLocation(){
+        const map = useMapEvents({
+          click(e){        
+            map.locate(map.mouseEventToLatLng(e.originalEvent))
+            setLatitude(map.mouseEventToLatLng(e.originalEvent).lat)
+            setLongitude(map.mouseEventToLatLng(e.originalEvent).lng)
+          }
+        })
+    }
+
+    function InitMap({latitud, longitud}){
+        return(
+            <MapContainer center={[latitud, longitud]} zoom={13} scrollWheelZoom={true}>
+                <TileLayer
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                />
+                <ChangeLocation />
+                <Marker position={[latitud, longitud]}></Marker>
+            </MapContainer>        
+        )    
+    }
 
     return(
         <div className="App">

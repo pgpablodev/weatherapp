@@ -83,9 +83,9 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                 }
 
                 if(mes<9)
-                    setFecha(`${nombreDia} ${dia}/0${mes+1}/${anio}`)                    
+                    setFecha(`${dia}/0${mes+1}/${anio}`)                    
                 else
-                    setFecha(`${nombreDia} ${dia}/${mes+1}/${anio}`)
+                    setFecha(`${dia}/${mes+1}/${anio}`)
                 
                 if(hh<10)
                     setHora(`0${hh}:00`)
@@ -199,7 +199,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">
@@ -227,7 +227,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">
@@ -255,7 +255,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">
@@ -283,7 +283,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">
@@ -311,7 +311,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">
@@ -339,7 +339,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">
@@ -367,7 +367,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">

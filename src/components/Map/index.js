@@ -13,7 +13,7 @@ function InitMap({latitud, longitud}){
     )    
 }
 
-export const LocationMarker = () => {
+function LocationMarker(){
     const [position, setPosition] = useState(null)
     const map = useMapEvents({
       click(e){        
