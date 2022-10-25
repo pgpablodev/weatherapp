@@ -31,7 +31,7 @@ const Panel = ({latitud, longitud}) => {
         if(latitud!=='' && longitud!==''){
             setTimeout(() => {
                 setLoading(false)
-            },9000)
+            },1000)
             axios.get(finalAPIEndPoint)
             .then((response) => {
                 setCityName("Tiempo actual en " +response.data[0].name)

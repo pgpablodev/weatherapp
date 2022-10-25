@@ -171,7 +171,7 @@ const FutureWeatherMobile = ({id, latitud, longitud}) => {
                             </div>
                         </div>
                         <div className="future-mobile-date">
-                            {fecha} {hora}
+                            {nombreDia} {fecha} {hora}
                         </div>
                     </div>
                     <div className="future-mobile-side-section">

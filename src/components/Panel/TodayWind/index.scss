@@ -5,6 +5,7 @@
     align-items: center;
     background-color: #21233a;
     border: 16px solid #21233a;
+    border-radius: 16px;
     width: fit-content;
 
     .wind-icon{
@@ -20,6 +21,7 @@
 @media screen and (min-width: 1080px) and (max-width: 1850px){
     .wind-widget{
         border: 8px solid #21233a;
+        border-radius: 8px;
         row-gap: 0.5rem;
         height: 95px;
 
@@ -37,6 +39,7 @@
 @media screen and (max-width: 1080px){
     .wind-widget{
         border: 8px solid #21233a;
+        border-radius: 8px;
         display: flex;
         flex-direction: row;  
         column-gap: 13.5rem;
