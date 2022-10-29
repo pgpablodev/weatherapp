@@ -52,12 +52,59 @@ const TodayWeather = ({latitud, longitud}) => {
                 setTemperature(celsius)
                 setMaxT(celsiusMax)
                 setMinT(celsiusMin)
-                const dia = new Date(response.data.dt*1000).getDate()
-                const mes = new Date(response.data.dt*1000).getMonth()
-                const anio = new Date(response.data.dt*1000).getFullYear()
-                const hh = new Date(response.data.dt*1000).getHours()
-                const mm = new Date(response.data.dt*1000).getMinutes()
-                const diaSemana = new Date(response.data.dt*1000).getDay()
+                let diaSemana = new Date(response.data.dt*1000).getUTCDay()
+                let dia = new Date(response.data.dt*1000).getDate()
+                let mes = new Date(response.data.dt*1000).getMonth()
+                let anio = new Date(response.data.dt*1000).getFullYear()
+                let hh
+                let mm
+                if(Number.isInteger(response.data.timezone/3600)){
+                    hh = new Date(response.data.dt*1000).getUTCHours() + response.data.timezone/3600
+                    mm = new Date(response.data.dt*1000).getUTCMinutes()
+                }else{
+                    hh = new Date(response.data.dt*1000).getUTCHours() + parseInt(response.data.timezone/3600)
+                    let offset = (response.data.timezone/3600 - parseInt(response.data.timezone/3600))*60
+                    mm = new Date(response.data.dt*1000).getUTCMinutes() + offset
+                    if(mm>59){
+                        mm -= 60
+                        hh += 1
+                    }
+                }   
+                if(hh>=24){
+                    hh-=24
+                    dia++
+                    diaSemana++
+                    if(diaSemana>6) diaSemana-=7
+                    if(mes===0||mes===2||mes===4||mes===6||mes===7||mes===9||mes===11){
+                        if(dia>31){
+                            dia-=31
+                            if(mes!==11){
+                                mes++
+                            }else{
+                                mes = 0
+                                anio++
+                            }
+                        }
+                    }else if(mes===3||mes===5||mes===8||mes===10){
+                        if(dia>30){
+                            dia-=30
+                            mes++
+                        }
+                    }else{
+                        if(anio%4===0 && (anio%100!==0 || anio%400===0)){
+                            if(dia>29){
+                                dia-=29
+                                mes++
+                            }
+                        }else{
+                            if(dia>28){
+                                dia-=28
+                                mes++
+                            }
+                        }
+                    }                         
+                }else if(hh<=0) hh+=24     
+                
                 let nombreDia = ""
                 
                 switch(diaSemana){
@@ -164,6 +211,12 @@ const TodayWeather = ({latitud, longitud}) => {
                         setIcono("")
                         break
                 }                           
+            }).catch(() => {
+                setTemperature("?")
+                setMaxT("?")
+                setMinT("?")
+                setFecha("??? ??/??/??")
+                setHora("??:??")
             })
         }
     }, [latitud, longitud, weather])

@@ -22,6 +22,8 @@ const TodayWind = ({latitud, longitud}) => {
                 const vel = Math.round(response.data.wind.speed*3.6)
                 setSpeed(vel)
                 setDeg(response.data.wind.deg)
+            }).catch(() => {
+                setSpeed("?")
             })
         }            
     }, [latitud, longitud])

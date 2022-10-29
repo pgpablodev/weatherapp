@@ -45,15 +45,49 @@ const FutureWeather = ({id, latitud, longitud}) => {
         let finalAPIEndPoint = `${API_endpoint}lat=${latitud}&lon=${longitud}&appid=${API_key}`
 
         if(latitud!=='' && longitud!==''){
-            axios.get(finalAPIEndPoint).then((response) => {
+            axios.get(finalAPIEndPoint).then((response) => {                                
                 setTemp(Math.round(response.data.list[id].main.temp-273.15))
                 setMinTemp(Math.round(response.data.list[id].main.temp_min-273.15))
                 setMaxTemp(Math.round(response.data.list[id].main.temp_max-273.15))
-                const dia = new Date(response.data.list[id].dt*1000).getDate()
-                const mes = new Date(response.data.list[id].dt*1000).getMonth()
-                const anio = new Date(response.data.list[id].dt*1000).getFullYear()
-                const diaSemana = new Date(response.data.list[id].dt*1000).getDay()
-                const hh = new Date(response.data.list[id].dt*1000).getHours()
+                let dia = new Date(response.data.list[id].dt*1000).getDate()
+                let mes = new Date(response.data.list[id].dt*1000).getMonth()
+                let anio = new Date(response.data.list[id].dt*1000).getFullYear()
+                let diaSemana = new Date(response.data.list[id].dt*1000).getUTCDay()              
+                let hh = new Date(response.data.list[id].dt*1000).getUTCHours() + parseInt(response.data.city.timezone/3600)
+                if(hh>=24){
+                    hh-=24
+                    dia++
+                    diaSemana++
+                    if(diaSemana>6) diaSemana-=7
+                    if(mes===0||mes===2||mes===4||mes===6||mes===7||mes===9||mes===11){
+                        if(dia>31){
+                            dia-=31
+                            if(mes!==11){
+                                mes++
+                            }else{
+                                mes = 0
+                                anio++
+                            }
+                        }
+                    }else if(mes===3||mes===5||mes===8||mes===10){
+                        if(dia>30){
+                            dia-=30
+                            mes++
+                        }
+                    }else{
+                        if(anio%4===0 && (anio%100!==0 || anio%400===0)){
+                            if(dia>29){
+                                dia-=29
+                                mes++
+                            }
+                        }else{
+                            if(dia>28){
+                                dia-=28
+                                mes++
+                            }
+                        }
+                    }                         
+                }else if(hh<=0) hh+=24   
                 
                 switch(diaSemana){
                     case 0:
@@ -153,6 +187,13 @@ const FutureWeather = ({id, latitud, longitud}) => {
                         setIcono("")
                         break
                 }
+            }).catch(() => {
+                setTemp("?")
+                setMaxTemp("?")
+                setMinTemp("?")
+                setFecha("??/??/??")
+                setNombreDia("???")
+                setHora("??:??")
             })
         }           
     }, [latitud, longitud, id, nombreDia])
