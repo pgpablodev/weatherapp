@@ -44,19 +44,18 @@
 
 @media screen and (max-width: 1080px){
     .page{
-        top: 500px;
         left: 0;
         max-width: 1080px;
 
         .page-map{
-            top: -350px;
-            left: 355px;
+            top: 600px;
+            left: 155px;
         }
     }    
 
     .leaflet-container{
-        border-radius: 4px; 
-        width: 340px;
-        height: 310px;    
+        border-radius: 8px; 
+        width: 730px;
+        height: 500px;    
     }
 }
