@@ -37,17 +37,26 @@
 
     .leaflet-container{
         width: 670px;
-        height: 680px;    
+        height: 680px; 
+        border-radius: 8px;    
     }
 }
 
 @media screen and (max-width: 1080px){
     .page{
+        top: 500px;
         left: 0;
         max-width: 1080px;
-    }
 
-    .page-map{
-        display: none;
+        .page-map{
+            top: -350px;
+            left: 355px;
+        }
+    }    
+
+    .leaflet-container{
+        border-radius: 4px; 
+        width: 340px;
+        height: 310px;    
     }
 }

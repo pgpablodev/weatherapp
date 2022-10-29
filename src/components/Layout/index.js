@@ -10,7 +10,7 @@ const Layout = () => {
 
     const [latitude, setLatitude] = useState('')
     const [longitude, setLongitude] = useState('')
-    const [isLoading, setLoading] = useState(true)   
+    const [isLoading, setLoading] = useState(true)
     
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -18,7 +18,7 @@ const Layout = () => {
             setLongitude(position.coords.longitude)
             setLoading(false)
         })
-    }, []) 
+    }, [])
 
     function ChangeLocation(){
         const map = useMapEvents({
@@ -58,7 +58,7 @@ const Layout = () => {
                         ? <div style={{marginTop: "2rem"}}>Cargando mapa...</div>
                         : <InitMap latitud={latitude} longitud={longitude}/>
                     }                    
-                </div>
+                </div>                
             </div>            
         </div>
     )
