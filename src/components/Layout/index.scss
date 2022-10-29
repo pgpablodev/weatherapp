@@ -24,7 +24,7 @@
     border-radius: 16px;  
 }
 
-@media screen and (min-width: 1090px) and (max-width: 1850px){
+@media screen and (min-width: 1122px) and (max-width: 1850px){
     .page{
         top: 85px;
 
@@ -42,10 +42,10 @@
     }
 }
 
-@media screen and (max-width: 1090px){
+@media screen and (max-width: 1122px){
     .page{
         left: 0;
-        max-width: 1080px;
+        max-width: 1122px;
 
         .page-map{
             top: 600px;
