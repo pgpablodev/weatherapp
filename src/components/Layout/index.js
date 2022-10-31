@@ -56,7 +56,6 @@ const Layout = () => {
             mapa.style.visibility = "visible"
             cerrar.style.display = "flex"
             fondo.style.display = "flex"
-            document.body.overflowX = "hidden"
         }   
     }
     
@@ -68,7 +67,6 @@ const Layout = () => {
             mapa.style.visibility = "hidden"
             cerrar.style.display = "none"
             fondo.style.display = "none"
-            document.body.overflowX = "visible"
         }
     }
 
