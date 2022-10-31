@@ -13,7 +13,7 @@ function App() {
     }       
     window.addEventListener("resize", handleResizeWindow)        
     return () => {
-        window.removeEventListener("resize", handleResizeWindow)       
+      window.removeEventListener("resize", handleResizeWindow)       
     }
   },[])
 

@@ -1,6 +1,8 @@
 import './index.scss';
 import { useState, useEffect } from 'react'
 import { MapContainer, TileLayer , Marker, useMapEvents } from 'react-leaflet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Titlebar from '../Titlebar'
 import Panel from '../Panel'
 
@@ -46,6 +48,28 @@ const Layout = () => {
         )    
     }
 
+    function muestraMapa(){
+        let mapa = document.getElementsByClassName("page-map")[0]
+        let cerrar = document.getElementsByClassName("close-button")[0]
+        let fondo = document.getElementsByClassName("black-screen")[0]
+        if(mapa!==undefined){            
+            mapa.style.display = "flex"
+            cerrar.style.display = "flex"
+            fondo.style.display = "flex"
+        }   
+    }
+    
+    function ocultaMapa(){
+        let mapa = document.getElementsByClassName("page-map")[0]
+        let cerrar = document.getElementsByClassName("close-button")[0]
+        let fondo = document.getElementsByClassName("black-screen")[0]
+        if(mapa!==undefined){
+            mapa.style.display = "none"
+            cerrar.style.display = "none"
+            fondo.style.display = "none"
+        }
+    }
+
     return(
         <div className="App">
             <Titlebar />
@@ -53,9 +77,14 @@ const Layout = () => {
                 <div className="page-panel">
                     <Panel latitud={latitude} longitud={longitude}/>
                 </div>
+                <div className="show-map" onClick={muestraMapa}>
+                    <FontAwesomeIcon icon={faMapLocationDot}/>
+                </div>
+                <div className="black-screen"></div>
+                <div className="close-button" onClick={ocultaMapa}><FontAwesomeIcon icon={faXmark}/></div>
                 <div className="page-map">
                     {isLoading
-                        ? <div style={{marginTop: "2rem"}}>Cargando mapa...</div>
+                        ? <div></div>
                         : <InitMap latitud={latitude} longitud={longitude}/>
                     }                    
                 </div>                

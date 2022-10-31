@@ -39,7 +39,7 @@
 }
 
 .loading-panel{
-    z-index: 9;
+    z-index: 999;
     font-family: 'Coolvetica';    
     color: #ffffff;
     background-color: #21233a;
@@ -119,11 +119,11 @@
         }
 
         .section-header{
-            margin-top: 42rem;
+            margin-top: 16rem;
             font-size: 36px;
             margin-left: 0rem;
             margin-bottom: 3rem;
-            margin-right: 1rem;
+            margin-right: 5rem;
             text-align: center;
         }
 

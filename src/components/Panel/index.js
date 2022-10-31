@@ -106,31 +106,21 @@ const Panel = ({latitud, longitud}) => {
                         Próximas previsiones
                     </div>   
                     <div className="fiveteen">
-                        <div>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={1}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={4}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={7}/>
-                        </div>                
-                        <div>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={9}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={12}/> 
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={15}/>
-                        </div>
-                        <div>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={17}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={20}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={23}/>
-                        </div>
-                        <div>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={25}/> 
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={28}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={31}/>
-                        </div>
-                        <div>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={33}/>
                             <FutureWeatherMobile latitud={latitud} longitud={longitud} id={36}/>
-                            <FutureWeatherMobile latitud={latitud} longitud={longitud} id={39}/> 
-                        </div>                              
+                            <FutureWeatherMobile latitud={latitud} longitud={longitud} id={39}/>                            
                     </div>                      
                 </div>
             </div>
