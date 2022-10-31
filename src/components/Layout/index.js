@@ -53,7 +53,7 @@ const Layout = () => {
         let cerrar = document.getElementsByClassName("close-button")[0]
         let fondo = document.getElementsByClassName("black-screen")[0]
         if(mapa!==undefined){            
-            mapa.style.display = "flex"
+            mapa.style.visibility = "visible"
             cerrar.style.display = "flex"
             fondo.style.display = "flex"
         }   
@@ -64,7 +64,7 @@ const Layout = () => {
         let cerrar = document.getElementsByClassName("close-button")[0]
         let fondo = document.getElementsByClassName("black-screen")[0]
         if(mapa!==undefined){
-            mapa.style.display = "none"
+            mapa.style.visibility = "hidden"
             cerrar.style.display = "none"
             fondo.style.display = "none"
         }
