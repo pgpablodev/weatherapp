@@ -11,6 +11,11 @@
     .wind-icon{
         font-size: 6rem;
         margin-top: 1rem;
+        width: 100px;
+        height: 100px;
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .wind-speed{
@@ -27,7 +32,8 @@
 
         .wind-icon{
             font-size: 2rem;
-            margin-top: 1rem;
+            margin-top: 1rem;      
+            background-size: 65%;      
         }
 
         .wind-speed{
@@ -42,15 +48,16 @@
         border-radius: 8px;
         display: flex;
         flex-direction: row;  
-        column-gap: 13.5rem;
+        column-gap: 2rem;
         height: 80px;
-        width: 22.7rem;
-        margin-left: 1.5rem;
+        width: 18rem;
+        margin-left: 3.5rem;
 
         .wind-icon{
             margin-top: 0rem;
             margin-left: 2rem;
             font-size: 4rem;
+            background-size: 70%; 
         }
 
         .wind-speed{

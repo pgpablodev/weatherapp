@@ -28,7 +28,7 @@
     }
 }
 
-@media screen and (min-width: 1122px) and (max-width: 1850px){
+@media screen and (min-width: 720px) and (max-width: 1850px){
     .title-bar{
         height: 75px;
 
@@ -51,8 +51,16 @@
     }
 }
 
-@media screen and (max-width: 1122px){
+@media screen and (max-width: 720px){
     .title-bar{
-        width: 100vw; 
+        width: 99%; 
+    }
+
+    .credit{
+        width: 100px;
+    }
+
+    a{
+        width: 100px;
     }
 }

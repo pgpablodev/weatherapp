@@ -13,7 +13,7 @@ const Panel = ({latitud, longitud}) => {
     const [cityName, setCityName] = useState('')
     const [isLoading, setLoading] = useState(true)
     const [width, setWidth] = useState(window.innerWidth)
-    const breakpoint = 1122
+    const breakpoint = 720
 
     useEffect(() => {
         const handleResizeWindow = () => setWidth(window.innerWidth)        

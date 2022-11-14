@@ -37,7 +37,7 @@
     border-radius: 16px;  
 }
 
-@media screen and (min-width: 1122px) and (max-width: 1850px){
+@media screen and (min-width: 720px) and (max-width: 1850px){
     .page{
         top: 85px;
 
@@ -55,15 +55,14 @@
     }
 }
 
-@media screen and (max-width: 1122px){
-    .page{
+@media screen and (max-width: 720px){
+    .page{        
         left: 0;
-        max-width: 1122px;
 
         .show-map{
             position: absolute;
             top: 610px;
-            left: 450px;
+            left: 300px;
             width: 80px;
             text-align: center;
             display: flex;
@@ -84,7 +83,8 @@
         .page-map{
             visibility: hidden;
             z-index: 7;
-            left: 180px;
+            left: 50px;
+            width: 600px;
         }
 
         .close-button{
@@ -92,7 +92,7 @@
             z-index: 8;
             position: absolute;
             top: 32px;
-            left: 760px;
+            left: 540px;
             background-color: white;
             border-radius: 999px;
             border: 2px solid #aaa;
@@ -114,7 +114,7 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 100vw;
+            width: 96vw;
             height: 2100px;
             background-color: rgba($color: #000000, $alpha: 0.5);
         }
@@ -122,7 +122,7 @@
 
     .leaflet-container{
         border-radius: 8px; 
-        width: 670px;
+        width: 93vw;
         height: 2000px;    
     }
 }
