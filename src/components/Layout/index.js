@@ -27,7 +27,8 @@ const Layout = () => {
             click(e){  
                 map.locate(map.mouseEventToLatLng(e.originalEvent))
                 setLatitude(map.mouseEventToLatLng(e.originalEvent).lat)
-                setLongitude(map.mouseEventToLatLng(e.originalEvent).lng)                          
+                setLongitude(map.mouseEventToLatLng(e.originalEvent).lng)
+                if(window.innerWidth<1122) ocultaMapa()
             }
         })
     }
