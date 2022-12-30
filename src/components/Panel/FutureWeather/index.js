@@ -116,10 +116,17 @@ const FutureWeather = ({id, latitud, longitud}) => {
                         break
                 }
 
-                if(mes<9)
-                    setFecha(`${dia}/0${mes+1}/${anio}`)                    
-                else
-                    setFecha(`${dia}/${mes+1}/${anio}`)
+                if(dia<10){
+                    if(mes<9)
+                        setFecha(`0${dia}/0${mes+1}/${anio}`)                    
+                    else
+                        setFecha(`0${dia}/${mes+1}/${anio}`)
+                }else{
+                    if(mes<9)
+                        setFecha(`${dia}/0${mes+1}/${anio}`)                    
+                    else
+                        setFecha(`${dia}/${mes+1}/${anio}`)
+                }
                 
                 if(hh<10)
                     setHora(`0${hh}:00`)

@@ -13,6 +13,7 @@ const Layout = () => {
     const [latitude, setLatitude] = useState('')
     const [longitude, setLongitude] = useState('')
     const [isLoading, setLoading] = useState(true)
+    const breakpoint = 1122
     
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -28,7 +29,7 @@ const Layout = () => {
                 map.locate(map.mouseEventToLatLng(e.originalEvent))
                 setLatitude(map.mouseEventToLatLng(e.originalEvent).lat)
                 setLongitude(map.mouseEventToLatLng(e.originalEvent).lng)
-                if(window.innerWidth<1122) ocultaMapa()
+                if(window.innerWidth<breakpoint) ocultaMapa()
             }
         })
     }
