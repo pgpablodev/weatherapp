@@ -134,10 +134,17 @@ const TodayWeather = ({latitud, longitud}) => {
                         break
                 }
 
-                if(mes<9)
-                    setFecha(`${nombreDia} ${dia}/0${mes+1}/${anio}`)
-                else
-                    setFecha(`${nombreDia} ${dia}/${mes+1}/${anio}`)
+                if(dia<10){
+                    if(mes<9)
+                        setFecha(`${nombreDia} 0${dia}/0${mes+1}/${anio}`)
+                    else
+                        setFecha(`${nombreDia} 0${dia}/${mes+1}/${anio}`)
+                }else{
+                    if(mes<9)
+                        setFecha(`${nombreDia} ${dia}/0${mes+1}/${anio}`)
+                    else
+                        setFecha(`${nombreDia} ${dia}/${mes+1}/${anio}`)
+                }
                 
                 if(hh<10){
                     if(mm<10)
