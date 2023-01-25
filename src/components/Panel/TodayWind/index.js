@@ -67,7 +67,7 @@ const TodayWind = ({latitud, longitud}) => {
 
     return(
         <div className="wind-widget">
-            <div className="wind-icon" style={{transform: `rotate(${deg}deg)`}}></div>
+            <div className="wind-icon" style={{transform: `rotate(${(deg+90)}deg)`}}></div>
             <div className="wind-speed">
                {speed} km/h
             </div>
